@@ -1,0 +1,17 @@
+<%= form_with url: root_path, method: :get, local: true do |f| %>
+  <%= f.text_field :query, value: params[:query] %>
+  <%= submit_tag "Save", name: nil %>
+<% end %>
+
+<% @results.each do |type, results| %>
+  <h3><%= type.pluralize %>:</h3>
+  <ul>
+    <% results.each do |result| %>
+      <li><%= result.content %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<% if params[:query] && @results.blank? %>
+  <p>No results for your search.</p>
+<% end %>
