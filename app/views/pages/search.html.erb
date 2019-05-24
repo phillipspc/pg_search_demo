@@ -1,5 +1,5 @@
 <%= form_with url: root_path, method: :get, local: true do |f| %>
-  <%= f.text_field :query, value: params[:query] %>
+  <%= f.text_field :query, value: params[:query], autocomplete: :off %>
   <%= submit_tag "Save", name: nil %>
 <% end %>
 
